@@ -83,6 +83,38 @@
             document.getElementById('sresult').textContent = Difference;
         }
     </script>
+
+	<script>
+    function calculateBMI() {
+        
+        let lbs = parseFloat(document.getElementById('lbs').value);
+        let inch = parseFloat(document.getElementById('inch').value);
+        
+        if (isNaN(lbs) || isNaN(inch) || lbs <= 0 || inch <= 0) {
+            document.getElementById('result').textContent = "Invalid Input";
+            document.getElementById('meaning').textContent = "Please enter valid weight and height values.";
+            return; 
+        }
+
+        
+        let BMI = (703 * lbs) / (inch * inch);
+           
+        let meaning;
+        if (BMI <= 18.5){
+            meaning = "Underweight";
+        } else if (BMI <= 24.9) {
+            meaning = "Healthy Weight";
+        } else if (BMI <= 29.9){
+            meaning = "Overweight";
+        } else {
+            meaning = "Obesity";
+        }
+        
+        document.getElementById('result').textContent = BMI.toFixed(2);
+        document.getElementById('meaning').textContent = meaning;
+    }
+</script>
 	
 </body>
+
 </html>
